@@ -15,6 +15,15 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+    if a ==0 && b == 0 && c ==0
+	raise TriangleError, "Los lados de un triangulo no pueden ser 0"
+    end
+    if a < 0 || b < 0 || c < 0 #(3,4, -5) 
+	raise TriangleError, "los lados de un triangulo no pueden ser negativos"
+    end
+    if a + b <= c || a + c <= b || b + c <= a #(1, 1, 3) (2, 4, 2) 
+	raise TriangleError, "La suma de 2 lados tiene que ser mayor que el tercero"
+    end
     if a == b && a == c && b == c
 	return :equilateral
     elsif a == b && a !=c || b == c && b != a || a == c && a != b
